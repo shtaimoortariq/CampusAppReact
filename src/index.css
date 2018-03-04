@@ -1,0 +1,20 @@
+.centerThatCardCol{
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+    flex-direction: column;
+}
+
+.Aligner-item {
+    max-width: 50%;
+  }
+
+  .Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .margin-top {
+    margin-top: 80px;
+  }
