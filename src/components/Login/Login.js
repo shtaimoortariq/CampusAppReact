@@ -1,16 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import { List, ListItem } from 'material-ui/List';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import SignUp from './SignUp';
-import '../index.css';
+import { Link } from 'react-router-dom';
+import '../../index.css';
 
 class Login extends React.Component {
 
