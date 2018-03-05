@@ -5,6 +5,13 @@
     flex-direction: column;
 }
 
+.centerThatCardRow{
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+  flex-direction: row;
+}
+
 .Aligner-item {
     max-width: 50%;
   }

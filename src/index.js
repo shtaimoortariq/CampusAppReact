@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ShoppingList1 from './ShoppingList1';
-//import ShoppingList2 from './ShoppingList2';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 //import {ShoppingList2} from './ShoppingList2'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -15,7 +15,10 @@ class AppComponent extends React.Component {
             <div className="shopping-list">
                 <MuiThemeProvider>
                     <Router>
-                    <ShoppingList1 name="Taimoor" />
+                        <div>
+                            <Route exact path="/" component={Login} />
+                            <Route exact path="/signup" component={SignUp} />
+                        </div>
                     </Router>
                 </MuiThemeProvider>
             </div>
