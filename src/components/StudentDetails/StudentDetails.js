@@ -6,9 +6,10 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
 import '../../index.css';
 import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 
-class Dashboard extends React.Component {
+class StudentDetails extends React.Component {
 
     constructor(props) {
         super(props);
@@ -40,11 +41,18 @@ class Dashboard extends React.Component {
                 </Drawer>
 
                 <Grid>
-                    <Row className="centerThatCard">
-                        <Col xs={6} md={8}>
-                            <Card className="margin-top centerThatCardCol">
-                                <CardText>
-                                    <p>Taimoor</p>
+                    <Row>
+                        <Col sm={6} md={5} mdOffset={4}>
+                            <Card className="margin-top">
+                                <CardText className="centerThatCardCol">
+
+                                    <TextField hintText="Full Name" type="text" />
+                                    <TextField hintText="Education" type="text" />
+                                    <TextField hintText="GPA" type="number" />
+                                    <TextField hintText="Skills" type="text" />
+                                    <TextField hintText="Overview" type="text" />
+
+                                    <RaisedButton label="Update" primary={true} />
                                 </CardText>
                             </Card>
                         </Col>
@@ -53,10 +61,11 @@ class Dashboard extends React.Component {
                 </Grid>
 
 
+
             </div>
         );
     }
 }
 
 
-export default Dashboard;
+export default StudentDetails;

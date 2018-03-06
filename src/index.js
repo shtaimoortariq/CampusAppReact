@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import Dashboard from './components/Dashboard/Dashboard';
+import StudentDetails from './components/StudentDetails/StudentDetails';
+import StudentJobs from './components/StudentJobs/StudentJobs';
 
 const root = document.getElementById('root');
 
@@ -20,6 +22,8 @@ class AppComponent extends React.Component {
                             <Route exact path="/" component={Login} />
                             <Route exact path="/signup" component={SignUp} />
                             <Route exact path="/dashboard" component={Dashboard} />
+                            <Route exact path="/StudentDetails" component={StudentDetails} />
+                            <Route exact path="/StudentJobs" component={StudentJobs} />
                             
                         </div>
                     </Router>

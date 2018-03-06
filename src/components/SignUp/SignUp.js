@@ -50,11 +50,9 @@ class SignUp extends React.Component {
                             <Card className="margin-top">
                                 <CardText className="centerThatCardCol">
 
-
                                     <TextField hintText="Name" type="text" />
                                     <TextField hintText="Email" type="email" />
                                     <TextField hintText="Password" type="password" /><br />
-
 
                                     <DropDownMenu value={this.state.value} onChange={this.handleChange}>
                                         <MenuItem value={0} label="Student" primaryText="Student" />

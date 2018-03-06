@@ -12,16 +12,23 @@
   flex-direction: row;
 }
 
+
+.centerThatCard{
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+}
+
 .Aligner-item {
     max-width: 50%;
-  }
+}
 
-  .Aligner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .margin-top {
-    margin-top: 80px;
-  }
+.margin-top {
+  margin-top: 80px;
+}
