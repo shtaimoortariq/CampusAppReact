@@ -32,8 +32,8 @@ class Login extends React.Component {
                 <AppBar title="Campus App" onLeftIconButtonClick={this.handleToggle} />
                 <Drawer open={this.state.open}>
                     <AppBar onLeftIconButtonClick={this.handleToggle} />
-                    <MenuItem>Menu Item</MenuItem>
-                    <MenuItem >Close Drawer</MenuItem>
+                    <MenuItem>StudentDetails</MenuItem>
+                    <MenuItem>StudentJobs</MenuItem>
                 </Drawer>
 
 
@@ -46,7 +46,7 @@ class Login extends React.Component {
                                 <TextField hintText="Email" type="email" />
                                 <TextField hintText="Password" type="password" /><br />
                                 <Row>
-                                    <RaisedButton label="Login" primary={true} />
+                                    <Link to="/studentdashboard"> <RaisedButton label="Login" primary={true} /></Link>
                                     <Link to="/signup"> <RaisedButton label="Sign up" primary={true} /></Link>
                                 </Row>
                             </CardText>

@@ -4,10 +4,10 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
-import '../../index.css';
+import '../../../index.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-
+import { Link } from 'react-router-dom';
 
 class StudentDetails extends React.Component {
 
@@ -35,9 +35,9 @@ class StudentDetails extends React.Component {
                 <AppBar title="Campus App" onLeftIconButtonClick={this.handleToggle} iconElementRight={<RaisedButton label="lOGOUT" secondary={true} />} />
                 <Drawer open={this.state.open}>
                     <AppBar onLeftIconButtonClick={this.handleToggle} />
-                    <MenuItem>Edit Details</MenuItem>
-                    <MenuItem>View All Jobs</MenuItem>
-                    <MenuItem>View Companies</MenuItem>
+                    <Link to="/studentdashboard/studentdetails"><MenuItem>StudentDetails</MenuItem></Link>
+                    <Link to="/studentdashboard/studentjobs"><MenuItem>StudentJobs</MenuItem></Link>
+                    <Link to="/studentdashboard/viewcompanies"><MenuItem>View Company</MenuItem></Link>
                 </Drawer>
 
                 <Grid>

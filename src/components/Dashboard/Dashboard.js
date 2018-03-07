@@ -6,6 +6,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
 import '../../index.css';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router-dom';
 
 
 class Dashboard extends React.Component {
@@ -34,9 +35,10 @@ class Dashboard extends React.Component {
                 <AppBar title="Campus App" onLeftIconButtonClick={this.handleToggle} iconElementRight={<RaisedButton label="lOGOUT" secondary={true} />} />
                 <Drawer open={this.state.open}>
                     <AppBar onLeftIconButtonClick={this.handleToggle} />
-                    <MenuItem>Edit Details</MenuItem>
-                    <MenuItem>View All Jobs</MenuItem>
-                    <MenuItem>View Companies</MenuItem>
+                    <Link to="/studentdashboard/studentdetails"><MenuItem>StudentDetails</MenuItem></Link>
+                    <Link to="/studentdashboard/studentjobs"><MenuItem>StudentJobs</MenuItem></Link>
+                    <Link to="/studentdashboard/viewcompanies"><MenuItem>View Company</MenuItem></Link>
+                    
                 </Drawer>
 
                 <Grid>

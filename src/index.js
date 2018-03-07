@@ -7,8 +7,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import Dashboard from './components/Dashboard/Dashboard';
-import StudentDetails from './components/StudentDetails/StudentDetails';
-import StudentJobs from './components/StudentJobs/StudentJobs';
+import StudentDetails from './components/Dashboard/StudentDetails/StudentDetails';
+import StudentJobs from './components/Dashboard/StudentJobs/StudentJobs';
+import ViewCompanies from './components/Dashboard/ViewCompanies/ViewCompanies';
+
 
 const root = document.getElementById('root');
 
@@ -21,10 +23,11 @@ class AppComponent extends React.Component {
                         <div>
                             <Route exact path="/" component={Login} />
                             <Route exact path="/signup" component={SignUp} />
-                            <Route exact path="/dashboard" component={Dashboard} />
-                            <Route exact path="/StudentDetails" component={StudentDetails} />
-                            <Route exact path="/StudentJobs" component={StudentJobs} />
-                            
+                            <Route exact path="/studentdashboard" component={Dashboard} />
+                            <Route exact path="/studentdashboard/studentdetails" component={StudentDetails} />
+                            <Route exact path="/studentdashboard/studentjobs" component={StudentJobs} />
+                            <Route exact path="/studentdashboard/viewcompanies" component={ViewCompanies} />                            
+
                         </div>
                     </Router>
                 </MuiThemeProvider>
