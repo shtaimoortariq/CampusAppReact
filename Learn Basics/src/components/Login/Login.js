@@ -9,6 +9,9 @@ import { Card, CardText } from 'material-ui/Card';
 import { Link } from 'react-router-dom';
 import '../../index.css';
 
+import {connect} from 'react-redux';
+
+
 class Login extends React.Component {
 
     constructor(props) {
@@ -56,10 +59,26 @@ class Login extends React.Component {
                 </Grid>
 
 
+                <p>
+                    {this.props.userName}
+                </p>
             </div>
         );
     }
 }
 
 
-export default Login;
+function mapStateToProps(state) {
+    return({
+        userName: state.rootReducer.userName
+    })
+}
+
+function mapDispatchToProps(diapatch) {
+    return({
+
+    })
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
