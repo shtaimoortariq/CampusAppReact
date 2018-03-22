@@ -7,6 +7,7 @@ import TextField from 'material-ui/TextField';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
 import { Link } from 'react-router-dom';
+import {changeState} from "../../store/actions/action";
 import '../../index.css';
 
 import {connect} from 'react-redux';
@@ -19,15 +20,26 @@ class Login extends React.Component {
         this.state = {
             value: null,
             name: null,
-            open: false
+            open: false,
+            userName: ""
         };
     }
 
     handleToggle = () => this.setState({ open: !this.state.open });
 
     getState() {
-        console.log(this.state);
+       // console.log(this.state);
+       this.props.changeStateOfStore(this.state.userName);
     }
+
+    changeUserInput(event) {
+        console.log(event.target.value);
+        this.setState({
+            userName: event.target.value
+        })
+
+    }
+
 
     render() {
         return (
@@ -46,11 +58,12 @@ class Login extends React.Component {
                     <Col sm={6} md={5} mdOffset={4}>
                         <Card className="margin-top">
                             <CardText className="centerThatCardCol">
-                                <TextField hintText="Email" type="email" />
+                                <TextField hintText="Email" type="email" onChange={this.changeUserInput.bind(this)}/>
                                 <TextField hintText="Password" type="password" /><br />
                                 <Row>
                                     <Link to="/studentdashboard"> <RaisedButton label="Login" primary={true} /></Link>
                                     <Link to="/signup"> <RaisedButton label="Sign up" primary={true} /></Link>
+                                    <RaisedButton label="state" primary={true} onClick={this.getState.bind(this)} />
                                 </Row>
                             </CardText>
                         </Card>
@@ -74,9 +87,11 @@ function mapStateToProps(state) {
     })
 }
 
-function mapDispatchToProps(diapatch) {
+function mapDispatchToProps(dispatch) {
     return({
-
+        changeStateOfStore: (data)=> {
+            dispatch(changeState(data))
+        }
     })
 
 }
