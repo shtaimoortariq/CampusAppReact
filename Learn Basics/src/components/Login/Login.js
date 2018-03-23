@@ -7,10 +7,10 @@ import TextField from 'material-ui/TextField';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
 import { Link } from 'react-router-dom';
-import {changeState} from "../../store/actions/action";
+import { changeState } from "../../store/actions/action";
 import '../../index.css';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 
 class Login extends React.Component {
@@ -21,15 +21,17 @@ class Login extends React.Component {
             value: null,
             name: null,
             open: false,
-            userName: ""
+            userName: "",
+            email: "",
+            password: ""
         };
     }
 
     handleToggle = () => this.setState({ open: !this.state.open });
 
     getState() {
-       // console.log(this.state);
-       this.props.changeStateOfStore(this.state.userName);
+        // console.log(this.state);
+        this.props.changeStateOfStore(this.state.userName);
     }
 
     changeUserInput(event) {
@@ -38,6 +40,12 @@ class Login extends React.Component {
             userName: event.target.value
         })
 
+    }
+
+    Login() {
+        console.log("Login");
+
+        console.log(this.state);
     }
 
 
@@ -58,12 +66,12 @@ class Login extends React.Component {
                     <Col sm={6} md={5} mdOffset={4}>
                         <Card className="margin-top">
                             <CardText className="centerThatCardCol">
-                                <TextField hintText="Email" type="email" onChange={this.changeUserInput.bind(this)}/>
-                                <TextField hintText="Password" type="password" /><br />
+                                <TextField hintText="Email" type="email" onChange={event => this.setState({ email: event.target.value })} />
+                                <TextField hintText="Password" type="password" onChange={event => this.setState({ password: event.target.value })} /><br />
                                 <Row>
                                     <Link to="/studentdashboard"> <RaisedButton label="Login" primary={true} /></Link>
                                     <Link to="/signup"> <RaisedButton label="Sign up" primary={true} /></Link>
-                                    <RaisedButton label="state" primary={true} onClick={this.getState.bind(this)} />
+                                    <RaisedButton label="state" primary={true} onClick={() => this.Login()} />
                                 </Row>
                             </CardText>
                         </Card>
@@ -82,14 +90,14 @@ class Login extends React.Component {
 
 
 function mapStateToProps(state) {
-    return({
+    return ({
         userName: state.rootReducer.userName
     })
 }
 
 function mapDispatchToProps(dispatch) {
-    return({
-        changeStateOfStore: (data)=> {
+    return ({
+        changeStateOfStore: (data) => {
             dispatch(changeState(data))
         }
     })

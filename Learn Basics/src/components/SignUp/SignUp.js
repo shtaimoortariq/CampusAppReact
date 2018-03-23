@@ -8,27 +8,42 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, CardText } from 'material-ui/Card';
 import DropDownMenu from 'material-ui/DropDownMenu';
 
-
 import '../../index.css';
 
+import { signupUser } from "../../store/actions/action";
+
+import { connect } from 'react-redux';
 
 class SignUp extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            value: 0,
+            type: 0,
             name: null,
+            email: '',
+            password: '',
             open: false
         };
     }
-    handleChange = (event, index, value) => this.setState({ value });
+    handleChange = (event, index, type) => this.setState({ type });
 
 
     handleToggle = () => this.setState({ open: !this.state.open });
 
     getState() {
         console.log(this.state);
+    }
+
+    signUp() {
+        console.log(this.state);
+        let user = {
+            type: this.state.type,
+            name: this.state.name,
+            email: this.state.email,
+            password: this.state.password,
+        }
+        this.props.createNewUser(user)
     }
 
     render() {
@@ -50,22 +65,26 @@ class SignUp extends React.Component {
                             <Card className="margin-top">
                                 <CardText className="centerThatCardCol">
 
-                                    <TextField hintText="Name" type="text" />
-                                    <TextField hintText="Email" type="email" />
-                                    <TextField hintText="Password" type="password" /><br />
+                                    <TextField hintText="Name" type="text" onChange={event => this.setState({ name: event.target.value })} />
+                                    <TextField hintText="Email" type="email" onChange={event => this.setState({ email: event.target.value })} />
+                                    <TextField hintText="Password" type="password" onChange={event => this.setState({ password: event.target.value })} /><br />
 
-                                    <DropDownMenu value={this.state.value} onChange={this.handleChange}>
+                                    <DropDownMenu value={this.state.type} onChange={this.handleChange}>
                                         <MenuItem value={0} label="Student" primaryText="Student" />
                                         <MenuItem value={1} label="Company" primaryText="Company" />
                                     </DropDownMenu>
 
-                                    <RaisedButton label="SignUp" primary={true} />
+                                    <RaisedButton label="SignUp" primary={true} onClick={() => this.signUp()} />
                                 </CardText>
                             </Card>
                         </Col>
 
                     </Row>
                 </Grid>
+
+                <p>
+                    {this.props.globelData.name}
+                </p>
 
 
             </div>
@@ -74,4 +93,20 @@ class SignUp extends React.Component {
 }
 
 
-export default SignUp;
+
+function mapStateToProps(state) {
+    return ({
+        globelData: state.authReducer
+    })
+}
+
+function mapDispatchToProps(dispatch) {
+    return ({
+        createNewUser: (data) => {
+            dispatch(signupUser(data))
+        }
+    })
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
